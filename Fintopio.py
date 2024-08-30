@@ -27,7 +27,7 @@ header = {
     }
 
 def banner():
-    os.system("title FINTOPIO BOT | t.me/fakinsit" if os.name == "nt" else "clear")
+    os.system("title FINTOPIO BOT" if os.name == "nt" else "clear")
     os.system("cls" if os.name == "nt" else "clear")
     custom_fig = Figlet(font='slant')
     print('')
@@ -47,7 +47,7 @@ def runforeva():
                     getname(query_id)
                     postrequest(getlogin(query_id))
     except Exception as e:
-        Log.error('[MAIN] error :', e)
+        Log.error('[MAIN] error :' + e)
         runforeva()
 
 def getlogin(querybro):
@@ -92,7 +92,6 @@ def nuke(tomket, id, reward):
         s = requests.Session()
         s.headers.update({"Authorization": "Bearer " + tomket, "Webapp": "true"})
         textpayload = {"diamondNumber":id}
-        print(textpayload)
         response = s.post(url, headers=header, json=textpayload)
         if response.status_code != 200:
             Log.error('[asteroid] failed to claim')
@@ -122,6 +121,11 @@ def panenbrow(tomket):
         Log.success('farming claimed!')
     except:
         Log.error('[farming] failed to claim')
+
+def sleep(num):
+    for i in range(num):
+        print("wait {} seconds".format(num - i), end='\r')
+        time.sleep(1)
 
 
 def postrequest(bearer):
@@ -181,7 +185,7 @@ def postrequest(bearer):
         else:
             Log.error('[farming] error ')
         print('=========================================')
-        Log.countdown(30)
+        sleep(30)
 
     except Exception as e:
         Log.error('[farming] error :', e)

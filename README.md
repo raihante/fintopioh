@@ -1,7 +1,9 @@
 
 # 💲 FINTOPIO-HHH ![NOTICE](https://img.shields.io/badge/DO%20WITH%20YOUR%20OWN%20RISK%20%7C%20CEK%20SECARA%20BERKALA%20-f54842)
 
-![Logo](https://raw.githubusercontent.com/raihante/fintopioh/main/joinus.gif)
+<div align="center">
+	<img src="https://raw.githubusercontent.com/raihante/fintopioh/main/joinus.gif">
+</div>
 
 
 ## ✅ Features
@@ -11,6 +13,7 @@
 - [x]  Support Multiple Account
 - [x]  Auto Click Asteroid
 - [x]  Auto Farm
+- [soon] Auto Complete Task  
 
 
 ## 🚀 Authors
@@ -56,7 +59,7 @@ Preview running:
 Coba ambil query (token) nya lagi kemungkinan expired.
 
 #### [?] Bang link daftar / register botnya dimana ?
-[![Register BOT](https://img.shields.io/badge/REGISTER-HERE-yellow.svg)](https://t.me/hopium_official_bot/join?startapp=linkCode_768014636)
+[![Register BOT](https://img.shields.io/badge/REGISTER-HERE-yellow.svg)](https://fintop.io/2uLXQNsLgp)
 
 
 ## License

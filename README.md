@@ -13,7 +13,7 @@
 - [x]  Support Multiple Account
 - [x]  Auto Click Asteroid
 - [x]  Auto Farm
-- [soon] Auto Complete Task  
+- [x] Auto Complete Task  
 
 
 ## 🚀 Authors

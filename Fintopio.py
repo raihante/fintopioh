@@ -77,8 +77,8 @@ def checkin(tomket):
     try:
         url = api + "/daily-checkins"
         s = requests.Session()
-        s.headers.update({"Authorization": "Bearer " + tomket})
-        response = s.get(url, headers=header)
+        s.headers.update({"Authorization": "Bearer " + tomket, "Webapp": "true"})
+        response = s.post(url, headers=header)
         jData=response.json()
         Log.warn('reward daily : ' + str(jData['dailyReward']))
         Log.warn('total login day :' + str(jData['totalDays']))

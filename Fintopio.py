@@ -59,7 +59,7 @@ def getlogin(querybro):
         jData=response.json()
         jsontoken =  jData['token']
         Log.success('Login success')
-        #Log.success(jsontoken)
+
         return jsontoken
     except:
         Log.error('[getlogin] error')
@@ -122,6 +122,45 @@ def panenbrow(tomket):
     except:
         Log.error('[farming] failed to claim')
 
+def gettask(tomket):
+    try:
+        urltasks = api + "/hold/tasks"
+        s = requests.Session()
+        s.headers.update({"Authorization": "Bearer " + tomket, "Webapp": "true"})
+        response = s.get(urltasks, headers=header)
+        jData=response.json()
+        jTask=jData['tasks']
+
+        for item in jTask: 
+            if item['status'] == 'available':
+                list_id = []
+                list_name = []
+                list_id.append(item['id'])
+                list_name.append(item['slug'])
+                anjoy = list_id + list_name
+                urlstart = '/hold/tasks/'+str(anjoy[0])+'/start'
+                s.post(api+urlstart, headers=header)
+                Log.warn('task ' + anjoy[1] + ' started!')
+            elif item['status'] == 'verified':
+                list_id = []
+                list_name = []
+                list_reward = []
+                list_id.append(item['id'])
+                list_name.append(item['slug'])
+                list_reward.append(item['rewardAmount'])
+                anjoy = list_id + list_name + list_reward
+                urlclaim = '/hold/tasks/'+str(anjoy[0])+'/claim'
+                responseclaim = s.post(api+urlclaim, headers=header)
+                if (responseclaim.text == '{"status":"completed"}'):
+                    Log.success('task ' + anjoy[1] + ' claimed ' + str(anjoy[2]) + ' points')
+            
+
+    except Exception as e:
+       # By this way we can know about the type of error occurring
+        #print(response.text)
+        print("The error is: ",e)
+        Log.error('[gettask] failed, restarting')
+
 def sleep(num):
     for i in range(num):
         print("wait {} seconds".format(num - i), end='\r')
@@ -147,6 +186,7 @@ def postrequest(bearer):
             Log.warn('claiming..')
             checkin(bearer)
         Log.warn('balance : ' + jData['balance'])
+        gettask(bearer)
 
     except:
         Log.error('[daily] error restarting')

@@ -25,7 +25,7 @@
 Pertama, ambil query/user id mu
 
 ```bash
-  Buka game, sebelum masuk ke game klik kanan inspect -> application -> local storage -> tgwebapp -> query_id
+  Buka game, sebelum masuk ke game klik kanan inspect -> application -> session storage -> tgwebapp -> query_id / user_id
 ```
 
 Buka quentod.txt paste query/user id telegram panjenengan sedoyo

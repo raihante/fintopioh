@@ -46,8 +46,8 @@ def runforeva():
                 for index, query_id in enumerate(queryh, start=1):
                     getname(query_id)
                     postrequest(getlogin(query_id))
-    except Exception as e:
-        Log.error('[MAIN] error :' + e)
+    except:
+        Log.error('[MAIN] error, restarting')
         runforeva()
 
 def getlogin(querybro):
@@ -83,8 +83,8 @@ def checkin(tomket):
         Log.warn('reward daily : ' + str(jData['dailyReward']))
         Log.warn('total login day :' + str(jData['totalDays']))
         Log.success('daily reward claimed!')
-    except Exception as e:
-        Log.error('[checkin] failed :', e)
+    except:
+        Log.error('[checkin] failed, restarting')
 
 def nuke(tomket, id, reward):
     try:
@@ -97,8 +97,8 @@ def nuke(tomket, id, reward):
             Log.error('[asteroid] failed to claim')
         Log.success('asteroid was crushed!')
         Log.warn('reward : ' + reward)
-    except Exception as e:
-        Log.error('[asteroid] failed to start :', e)
+    except:
+        Log.error('[asteroid] failed to start, restarting')
 
 def tanamtanamubi(tomket):
     try:
@@ -148,8 +148,8 @@ def postrequest(bearer):
             checkin(bearer)
         Log.warn('balance : ' + jData['balance'])
 
-    except Exception as e:
-        Log.error('[daily] error :', e)
+    except:
+        Log.error('[daily] error restarting')
         time.sleep(5)
         runforeva()
 
@@ -167,8 +167,8 @@ def postrequest(bearer):
         else:
             Log.warn('asteroid crushed! waiting next round..')
 
-    except Exception as e:
-        Log.error('[asteroid] error :', e)
+    except:
+        Log.error('[asteroid] error restarting')
         time.sleep(5)
         runforeva()
 
@@ -187,8 +187,8 @@ def postrequest(bearer):
         print('=========================================')
         sleep(30)
 
-    except Exception as e:
-        Log.error('[farming] error :', e)
+    except:
+        Log.error('[farming] error restarting')
         time.sleep(5)
         runforeva()
 

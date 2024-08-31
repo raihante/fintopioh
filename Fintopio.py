@@ -156,9 +156,6 @@ def gettask(tomket):
             
 
     except Exception as e:
-       # By this way we can know about the type of error occurring
-        #print(response.text)
-        print("The error is: ",e)
         Log.error('[gettask] failed, restarting')
 
 def sleep(num):

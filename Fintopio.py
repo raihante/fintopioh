@@ -247,7 +247,7 @@ def run_bot():
                         handle_asteroid_and_farming(token)
                         Log.success(f'Finished processing user: {Fore.YELLOW}@{username}{Fore.RESET}')
                         print('=' * 50)  # Line separator for clarity between users
-                        sleep(30)  # Wait 30 seconds between actions
+                        sleep(60)  # Wait 60 seconds between actions
                         success = True
                         break  # If successful, break out of the retry loop
                     else:
